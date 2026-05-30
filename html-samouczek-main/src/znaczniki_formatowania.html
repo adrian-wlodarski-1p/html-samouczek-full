@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.07">
+    <title>Znaczniki formatowania</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Znaczniki formatowania</h1>
+    </header>
+    <main>
+      <nav></nav>
+      <div id="content">
+	    <p>Najprostszą rzeczą, jaką da się napisać za pomocą kodu HTML, jest formatowanie tekstu. Dzisiaj się nauczymy, jak to robić.</p>
+		<h2>Rodzaje znaczników</h2>
+		Znaczniki w HTML dzielą się na kilka rodzajów:
+		<ul>
+		  <li><dfn>Samodzielne</dfn> mogą występować samodzielnie, bez zamykającego elementu:
+		  <pre class="cb">&lt;img src="./obraz.png"&gt;</pre></li>
+		  <li><dfn>Kontenerowe</dfn> wymagają zamykającego elementu, z backslashem (<code>&lt;/...&gt;</code>). Te z kolei dzielą się też na 2 rodzaje:
+		  <ul>
+		    <li><dfn>Liniowe</dfn> mogą znajdować się wewnątrz linii...
+			<pre class="cb">W środku tekstu ukrył się &lt;b&gt;tekst pogrubiony&lt;/b&gt;!</pre>
+			<samp>W środku tekstu ukrył się <b>tekst pogrubiony</b>!</samp></li>
+			<li>...a <dfn>blokowe</dfn> nie mogą:
+			<pre class="cb">Z ubolewaniem muszę przyznać, że &lt;p&gt;paragrafów nie da się wstawić w linię tekstu.&lt;/p&gt;</pre>
+			<samp>Z ubolewaniem muszę przyznać, że <p>paragrafów nie da się wstawić w linię tekstu.</p></samp></li>
+		  </ul></li>
+		</ul>
+		<h2><code>&lt;i&gt;</code> i <code>&lt;b&gt;</code></h2>
+		<p>Są to najbardziej podstawowe znaczniki HTML. &lt;i&gt; sprawia, że tekst jest pochylony (napisany kursywą), a &lt;b&gt; - pogrubiony:</p>
+		<pre class="cb">Ten tekst jest &lt;i&gt;pochylony&lt;/i&gt;, a ten - &lt;b&gt;pogrubiony&lt;/b&gt;.</pre>
+		<samp>Ten tekst jest <i>pochylony</i>, a ten - <b>pogrubiony</b>.</samp>
+		<p>Można też nałożyć jeden na drugi:</p>
+		<pre class="cb">Od teraz tekst będzie &lt;b&gt;pogrubiony, a teraz też &lt;i&gt;pochylony&lt;/i&gt;.&lt;/b&gt;</pre>
+		<samp>Od teraz tekst będzie <b>pogrubiony, a teraz też <i>pochylony</i>.</b></samp
+		<h2>Paragrafy <code>&lt;p&gt;</code></h2>
+		<pre class="cb">&lt;p&gt;To jest paragraf!&lt;p&gt;</pre>
+		<samp><p>To jest paragraf!</p></samp>
+		<h2><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> itd.</h2>
+		Ważne są także nagłówki:
+		<pre class="cb">&lt;h1&gt;h1&lt;/h1&gt;&lt;h2&gt;h2&lt;/h2&gt;&lt;h3&gt;h3&lt;/h3&gt;&lt;h4&gt;h4&lt;/h4&gt;&lt;h5&gt;h5&lt;/h5&gt;&lt;h6&gt;h6&lt;/h6&gt;&lt;p&gt;tekst&lt;/p&gt;</pre>
+		<samp><h1>h1</h1><h2>h2</h2><h3>h3</h3><h4>h4</h4><h5>h5</h5><h6>h6</h6><p>tekst</p></samp>
+		<h2>Inne znaczniki formatowania</h2>
+		<ul>
+		  <li><code>&lt;em&gt;</code> służy do wyróżniania tekstu i jest semantycznym odpowiednikiem <code>&lt;i&gt;</code>.</li>
+		  <li><code>&lt;strong&gt;</code> zaznacza bardzo ważny tekst. Jest semantycznym odpowiednikiem <code>&lt;b&gt;</code>.</li>
+		  <li><code>&lt;small&gt;</code> zapisuje mały tekst:
+		  <pre class="cb">Zaraz tekst &lt;small&gt;zrobi się mały.&lt;/small&gt;</pre>
+		  <samp>Zaraz tekst <small>zrobi się mały.</small></samp></li>
+		  <li><code>&lt;sub&gt;</code> robi subskrypt, a <code>&lt;sup&gt;</code> - superskrypt:
+		  <pre class="cb">Czy H&lt;sub&gt;2&lt;/sub&gt;O jest bardziej popularne niż E=mc&lt;sup&gt;2&lt;/sup&gt;?</pre>
+		  <samp>Czy H<sub>2</sub>O jest bardziej popularne niż E=mc<sup>2</sup>?</samp></li>
+		  <li><code>&lt;s&gt;</code> przekreśla tekst, a <code>&lt;mark&gt;</code> - zaznacza.
+		  <pre class="cb">Ten tekst &lt;s&gt;jest przekreślony&lt;/s&gt;, a ten &lt;mark&gt;zaznaczony&lt;/mark&gt;.</pre>
+		  <samp>Ten tekst <s>jest przekreślony</s>, a ten <mark>zaznaczony</mark>.</samp></li>
+		  <li><code>&lt;del&gt;</code> służy do zaznaczania tekstu usuniętego (odpowiednik <code>&lt;s&gt;</code>), a <code>&lt;ins&gt;</code> - wstawionego:
+		  <pre class="cb">Zamierzam kupić &lt;del&gt;mleko&lt;/del&gt; &lt;ins&gt;jajka&lt;/ins&gt;.</pre>
+		  <samp>Zamierzam kupić <del>mleko</del> <ins>jajka</ins>.</samp></li>
+		  <li><code>&lt;q&gt;</code> zaznacza <q>cytat</q>, a <code>&lt;blockquote&gt;</code> - cytat blokowy.</li>
+		  <li><code>&lt;code&gt;</code> zaznacza <code>kod</code>.</li>
+		  <li><code>&lt;pre&gt;</code> służy do zapisywania tekstu w dokładnie taki sam sposób, w jaki został zapisany w kodzie, włącznie ze spacjami i znakami nowej linii. Jest on używany w tym projekcie do zapisywania bloków kodu.</li>
+		</ul>
+	  </div>
+    </main>
+    <footer>© 2026 Adrian Włodarski</footer>
+	<script src="../scripts/nav.js"></script>
+  </body>
+</html>
