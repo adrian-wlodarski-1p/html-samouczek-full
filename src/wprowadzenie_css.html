@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.07">
+    <title>Wprowadzenie do CSS</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Wprowadzenie do CSS</h1>
+    </header>
+    <main>
+      <nav></nav>
+      <div id="content">
+	    <p>W poprzedniej sekcji nauczyliśmy się podstaw HTML. Były one wystarczające do tworzenia prostych stron, lecz - bądźmy szczerzy - nie wyglądały one rewelacyjnie. Dlatego w tej sekcji nauczymy się CSS, języka stylów.</p>
+		<h2>Co to CSS?</h2>
+		<p><dfn>CSS</dfn> to specjalny język służący do definiowania stylów. <dfn>Style</dfn> to sposób, w który napisana w HTML strona się wyświetla. Dokument CSS definiujący style nazywamu <dfn>arkuszem stylów</dfn>. Każda strona ma style, nawet jeśli są one po prostu domyślnymi stylami przeglądarki. Te ostatnie nie są jednak zalecane, bo strona może wtedy wyglądać inaczej na każdej przeglądarce (a poza tym domyślny wygląd nie jest zbyt ładny).</p>
+		<h2>Podstawy</h2>
+		<p>Arkusz stylów składa się z tzw. <dfn>reguł</dfn>. Każda reguła składa się z <dfn>selektora</dfn> i par <dfn>właściwość</dfn>-<dfn>wartość</dfn>, czyli <dfn>deklaracji</dfn>:</p>
+		<pre class="cb">selektor { właściwość: wartość; }</pre>
+		<p>Część w klamrach to <dfn>definicja</dfn>. Przeanalizujmy więc przykładową regułę:</p>
+		<pre class="cb">p { color: blue; }</pre>
+		<p>Jej selektor to <code>p</code>, co oznacza, że ta reguła będzie zaaplikowana wszystkim znacznikom <code>&lt;p&gt;</code>, lecz tylko im. W definicji mamy tylko jedną deklarację. <code>color: blue</code> oznacza, że wszystkie elementy objęte danym selektorym mają niebieski kolor tekstu. Więc, ta reguła zmienia kolor wszystkich znaczników <code>&lt;p&gt;</code> na niebieski.</p>
+		<h2>Kaskadowość</h2>
+		Jest kilka sposobów na dodanie (arkusza) stylów do dokumentu, i są one ułożone w ścisłej hierarchii ważności określającej, które style się bardziej liczą, zwanej <dfn>hierarchią stylów</dfn> (zaczynając od rozważanego najpierw, czyli najmniej ważnego):
+		<ol>
+		  <li><dfn>Domyślne style przeglądarki</dfn>.</li>
+		  <li><dfn>Import arkusza stylów</dfn> do innego jest skomplikowaną rzeczą, którą się zajmiemy <a href="kaskadowosc.html">później</a>.</li>
+		  <li><dfn>Zewnętrzny arkusz stylów</dfn> importuje się za pomocą:
+		  <pre class="cb">&lt;link rel="stylesheet" href="..."&gt;</pre>
+		  <p>Jest to najszerzej stosowana metoda dodawania arkusza stylów w prawdziwych stronach internetowych (z tego, co wiem).</p></li>
+		  <li>By użyć <dfn>wewnętrznego arkusza stylów</dfn>, trzeba to dodać do <code>&lt;head&gt;</code>:
+		  <pre class="cb">&lt;style&gt;
+...
+&lt;/style&gt;</pre>
+          <p>Jest to jedna z najwygodniejszych i najbardziej popularnych metod dodania arkusza stylów.</p></li>
+		  <li><dfn>Styl lokalny</dfn> - styl dodawany bezpośrednio do znacznika za pomocą atrybutu <code>style</code>:
+		  <pre class="cb">&lt;span style="color:blue;"&gt;Hello!&lt;/span&gt;</pre></li>
+		</ol>
+		<h3>Zanim zaczniesz</h3>
+		<p>Zasada, która jest bardzo ważna, ale o której (jak słyszałem) zawsze zapominają nowicjusze, jest to, że <span style="color:red">PO KAŻDEJ DEKLARACJI MUSI BYĆ ŚREDNIK.</span> Oto przykład złego kodu, który natychmiast wywali wygląd strony do góry nogami:</p>
+		<pre class="cb" style="background:#E99">p {
+  color: red
+  background: blue
+}</pre>
+        <p>Oto właściwa wersja tamtego skandalicznego kodu:</p>
+		<pre class="cb">p {
+  color: red;
+  background: blue;
+}</pre>
+        <p><small>Choć dozwolone jest nie umieszczanie średnika po ostatniej deklaracji, lepiej tego nie robić, tak na wszelki wypadek.</small></p>
+		<p>By już nie popełniać takich błędów, możesz użyć <a href="materialy.html#css_validator">Walidatora CSS</a>.</p>
+		<p>I ostatnia rzecz: w CSS też istnieją komentarze. Będą one ignorowane przez CSS.</p>
+		<pre class="cb">/*to jest komentarz CSS. Może on się rozciągać na wiele linii.*/</pre>
+      </div>
+	</main>
+    <footer>© 2026 Adrian Włodarski</footer>
+	<script src="../scripts/nav.js"></script>
+  </body>
+</html>

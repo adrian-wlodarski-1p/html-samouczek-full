@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.07">
+    <title>Właściwości blokowe</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Właściwości blokowe</h1>
+    </header>
+    <main>
+      <nav></nav>
+      <div id="content">
+        <p>Przerobiliśmy już, jak łatwo zmienić wygląd tekstu, ale teraz dowiemy się, jak wpłynąć na wygląd znaczników blokowych.</p>
+		<h2><code>background-color</code></h2>
+		<p><code>background-color</code>, w skrócie <code>background</code>, pozwala zmienić kolor tła elementu.</p>
+		<pre class="cb">p { background: yellow; }
+&lt;p&gt;Taki sam efekt jak &amp;lt;mark&amp;gt;.&lt;/p&gt;</pre>
+		<samp><p style="background:yellow;">Taki sam efekt jak &lt;mark&gt;.</p></samp>
+		<p>Od teraz będę używać znacznika &lt;div&gt; do demonstracji właściwości.</p>
+	    <h2><code>width</code> i <code>height</code></h2>
+	    <p>Są to dwie najbardziej podstawowe właściwości znaczników blokowych. Ich działanie jest proste - ustawiają szerokość i wysokość elementu. Najczęściej mierzy się je w pikselach:</p>
+		<pre class="cb">div {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+&lt;div&gt;&lt;/div&gt;</pre>
+		<samp><div class="blue box"></div></samp>
+		<p>Choć dozwolone są też procenty, mierzone względem elementu nadrzędnego:</p>
+		<pre class="cb">#parent {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+#child {
+  width: 50%;
+  height: 50%;
+  background-color: red;
+}
+&lt;div id="parent"&gt;
+  &lt;div id="child"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+		<samp><div class="blue box"><div class="red box" style="width:50%;height:50%"></div></div></samp>
+		<p>Szczegóły mierzenia wielkości w innych jednostkach będą przedstawione <a href="jednostki.html">na innej lekcji</a>.</p>
+		<p>Zauważmy, że użyłem selektora z <code>#</code> i atrybutu <code>id</code>. Ta notacja pozwala stosować wybrane style na konkretnych elementach, nawet jeśli są takimi samymi znacznikami.</p>
+		<p>Jest także kilka interesujących wartości nie-numerycznych. Pierwszą z nich jest <code>auto</code>, które sprawia, że wielkość bloku sama dostosowuje się do okoliczności:</p>
+		<pre class="cb">div {
+  width: auto; /* domyślne */
+  /* height także domyślnie wynosi auto */
+  background-color: cyan;
+  display: inline-block;
+}
+&lt;div&gt;Wielkość tego bloku dopasowuje się do tekstu. Jest to zachowanie domyślne.&lt;/div&gt;</pre>
+		<samp><div class="cyan ibox">Wielkość tego bloku dopasowuje się do tekstu. Jest to zachowanie domyślne.</div></samp>
+		<p><small>Użyłem <q>display: inline-block</q>, by <code>&lt;div&gt;</code> z <q>width: auto</q> nie rozpychał się na całą dostępną szerokość.</small></p>
+		<p><code>width</code> i <code>height</code> mogą przyjmować wartość <code>inherit</code>, w przypadku których jest ona jednak bezużyteczna.</p>
+		<h2>Kontrola automatycznych wielkości</h2>
+		<p>Okej, ale co jeśli chcemy, by szerokość lub wysokość zmieniała się w razie potrzeb, ale nie przekraczała pewnych wartości? Jeśli <code>width</code> lub <code>height</code> jest ustawione na <code>auto</code>, to możemy regulować ich wartość za pomocą czterech właściwości:</p>
+		<ul>
+		  <li><code>min-width</code> określa najmniejszą możliwą szerokość elementu.</li>
+		  <li><code>max-width</code> określa największą możliwą szerokość elementu.</li>
+		  <li><code>min-height</code> określa najmniejszą możliwą wysokość elementu.</li>
+		  <li><code>max-width</code> określa największą możliwą wysokość elementu.</li>
+		</ul>
+		<h2><code>margin</code> i <code>padding</code></h2>
+		<p>Są to dwie bardzo ważne właściwości.</p>
+		<p><code>margin</code> określa, ile jest miejsca wokół elementu:</p>
+		<pre class="cb">div {
+  margin: 10px;
+  background-color: cyan;
+  display: inline-block;
+}
+&lt;div&gt;Ten blok lubi mieć trochę miejsca wokół siebie.&lt;/div&gt;</pre>
+        <samp><div class="cyan ibox" style="margin:10px;">Ten blok lubi mieć trochę miejsca wokół siebie.</div></samp>
+		<p><code>padding</code> określa, ile miejsca jest wewnątrz elementu, ale wokół zawartości:</p>
+		<pre class="cb">div {
+  padding: 10px;
+  background-color: cyan;
+  display: inline-block;
+}
+&lt;div&gt;Ten blok jest bardzo przy kości, ale nie mów mu o tym.&lt;/div&gt;</pre>
+        <samp><div class="cyan ibox" style="padding:10px;">Ten blok jest bardzo przy kości, ale nie mów mu o tym.</div></samp>
+		<h2><code>border</code></h2>
+		<p><code>border</code> jest to właściwość, która pozwala wyświetlać obramowanie dookoła dowolnego elementu. Przyjmuje ona aż trzy wartości: szerokość obramowania (z jednostką, <code>border-width</code>), typ obramowania (<code>border-style</code>) i kolor (<code>border-color</code>).</p>
+		<pre class="cb">border: 3px solid black;</pre>
+		<p>Równoznaczne:</p>
+		<pre class="cb">border-width: 3px;
+border-style: solid;
+border-color: black;</pre>
+		<p>Wyświetla się jako (z przykładowym <code>&lt;div&gt;</code>em):</p>
+		<samp><div style="width:100px;height:100px;margin:3px;border: 3px solid black;background:green;"></div></samp>
+		<p>Jest kilka możliwych wartości <code>border-style</code>:</p>
+		<ul>
+		  <li><code>none/hidden</code> - brak</li>
+		  <li><code>solid</code> - jednolite</li>
+		  <li><code>dotted</code> - kropkowane</li>
+		  <li><code>dashed</code> - kreskowane</li>
+		  <li><code>double</code> - podwójne<dd>
+		</ul>
+		<h2><code>box-sizing: border-box</code></h2>
+		<p>Czasem podczas kodowania możesz się natknąć na jeden problem: <code>padding</code> i <code>border</code> zwiększają wyświetlaną szerokość i wysokość, więc <code>width</code> i <code>height</code> mogą nie odzwierciedlać prawdziwej wielkości elementu:</p>
+		<pre class="cb">div {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+#one { padding: 0; background: red; }
+#two { padding: 25px; background: blue; }
+&lt;div id="one"&gt;&lt;div id="two"&gt;</pre>
+        <samp><div class="red box"></div><div class="blue box" style="padding:25px;"></div></samp>
+		<p>Lecz ustawiając właściwość <code>box-sizing</code> na <code>border-box</code>, można temu zapobiec. Zmienia to sposób obliczania rozmiarów elementu, tak że <code>padding</code> i <code>border</code> są już w nich uwzględnione:</p>
+		<pre class="cb">div {
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+#one { padding: 0; background: red; }
+#two { padding: 25px; background: blue; }
+&lt;div id="one"&gt;&lt;div id="two"&gt;</pre>
+        <samp><div class="red box" style="box-sizing:border-box;"></div><div class="blue box" style="padding:25px;box-sizing:border-box;"></div></samp>
+		<h2>Właściwości kierunkowe</h2>
+		<p>Można ustawić, by <code>margin</code>, <code>padding</code> lub <code>border</code> wpływały na tylko jedną stronę elementu, poprzed dodanie <code>-left</code>, <code>-right</code>, <code>-top</code> lub <code>-bottom</code> na końcu, ale przed przyrostkiem. Na przykład margin stosowane tylko po lewej to <code>margin-left</code>, ale zmiana koloru <code>border</code>u tylko po prawej to już <code>border-right-color</code>:</p>
+		<pre class="cb">div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 2px solid black;
+  margin-left: 10px;
+  border-right-color: blue;
+}
+&lt;div&gt;&lt;/div&gt;</pre>
+        <samp><div class="red box" style="margin-left:10px;border-right-color:blue;"></div></samp>
+      </div>
+	</main>
+    <footer>© 2026 Adrian Włodarski</footer>
+	<script src="../scripts/nav.js"></script>
+  </body>
+</html>

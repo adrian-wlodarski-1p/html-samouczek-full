@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.07">
+    <title>Tabele</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Tabele</h1>
+    </header>
+    <main>
+      <nav></nav>
+      <div id="content">
+	    <p>By stworzyć tabelę, trzeba najpierw umieścić <code>&lt;table&gt;</code>, następnie rzędy <code>&lt;tr&gt;</code> i komórki <code>&lt;td&gt;</code> (lub <code>&lt;th&gt;</code> dla nagłówka):
+		<pre class="cb">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Miasto&lt;/th&gt;
+    &lt;th&gt;Kraj&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Kraków&lt;/td&gt;
+    &lt;td&gt;Polska&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Praga&lt;/td&gt;
+    &lt;td&gt;Czechy&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+        <samp><table>
+		  <tr>
+		    <th>Miasto</th>
+			<th>Kraj</th>
+		  </tr>
+		  <tr>
+		    <td>Kraków</td>
+			<td>Polska</td>
+		  </tr>
+		  <tr>
+		    <td>Praga</td>
+			<td>Czechy</td>
+		  </tr>
+		</table></samp>
+		<p>Gdy samemu stworzysz tabelę w swoim dokumencie, prawdopodobnie nie będzie wyglądać tak ładnie. Dlatego wklej w <code>&lt;head&gt;</code> następujący kod:</p>
+		<pre class="cb">&lt;style&gt;
+table, th, td {
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+&lt;/style&gt;</pre>
+        <p>Wyjaśnimy go w <a href="formatowanie_list_tabel.html">przyszłej sekcji</a>.</p>
+		<h3><code>rowspan</code> i <code>colspan</code></h3>
+		<p>W HTML istnieją dwa atrybuty <code>&lt;td&gt;</code> i <code>&lt;th&gt;</code>, które pozwalają na łączenie komórek tabeli. Są to <code>rowspan</code> i <code>colspan</code>. <code>rowspan</code> łączy pionowo, a <code>colspan</code> poziomo:</p>
+		<pre class="cb">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td colspan="2"&gt;Nr 1&lt;/td&gt;
+    &lt;!--Tu by się znajdował Nr 2--&gt;
+    &lt;td rowspan="2"&gt;Nr 3&lt;/td&gt;
+    &lt;td&gt;Nr 4&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Nr 5&lt;/td&gt;
+    &lt;td&gt;Nr 6&lt;/td&gt;
+    &lt;!--Tu by się znajdował Nr 7--&gt;
+    &lt;td&gt;Nr 8&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+        <samp><table>
+		  <tr>
+		    <td colspan="2">Nr 1</td>
+			<td rowspan="2">Nr 3</td>
+			<td>Nr 4</td>
+		  </tr>
+		  <tr>
+		    <td>Nr 5</td>
+			<td>Nr 6</td>
+		     <td>Nr 8</td>
+		  </tr>
+		</table></samp>
+		<h3>Tabele zagnieżdżone</h3>
+		<p>Tabele można też zagnieżdżać jedna w drugiej. Co prawda nie widzę sensu robienia tego, ale to jak najbardzej możliwe:</p>
+		<pre class="cb">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Nr 1&lt;/td&gt;
+    &lt;td&gt;
+      &lt;table&gt;
+        &lt;tr&gt; &lt;td&gt;Nr A&lt;/td&gt; &lt;td&gt;Nr B&lt;/td&gt; &lt;/tr&gt;
+        &lt;tr&gt; &lt;td&gt;Nr C&lt;/td&gt; &lt;td&gt;Nr D&lt;/td&gt; &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/td&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Nr 3&lt;/td&gt;
+    &lt;td&gt;Nr 4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+      <samp><table>
+	    <tr>
+		  <td>Nr 1</td>
+		  <td>
+		    <table>
+			  <tr> <td>Nr A</td> <td>Nr B</td> </tr>
+			  <tr> <td>Nr C</td> <td>Nr D</td> </tr>
+			</table>
+		  </td>
+		<tr>
+		  <td>Nr 3</td>
+		  <td>Nr 4</td>
+		</tr>
+	  </table></samp>
+      </div>
+	</main>
+    <footer>© 2026 Adrian Włodarski</footer>
+	<script src="../scripts/nav.js"></script>
+  </body>
+</html>
